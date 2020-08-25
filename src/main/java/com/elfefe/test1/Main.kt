@@ -2,7 +2,14 @@ package com.elfefe.test1
 
 import javafx.application.Application
 import javafx.scene.control.Button
+import javafx.scene.layout.GridPane
 import javafx.stage.Stage
+import javafx.scene.Scene
+import javafx.geometry.Pos
+import javafx.application.Platform
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class Main : Application() {
 
@@ -106,7 +113,6 @@ class Main : Application() {
     private fun lockMouse() {
         try {
             /*
-
             val securityManager: SecurityManager? = System.getSecurityManager()
             securityManager?.run {
                 checkPermission(FXPermissions.CREATE_ROBOT_PERMISSION)
@@ -118,9 +124,7 @@ class Main : Application() {
                 Robot().mouseMove(mouseXPosition, mouseYPosition)
                 FXPermissions.CREATE_ROBOT_PERMISSION
             })
-
             */
-
         } catch (e: RuntimeException) {
             println("L130 - Exception runtime :$e")
         } catch (i: SecurityException) {
