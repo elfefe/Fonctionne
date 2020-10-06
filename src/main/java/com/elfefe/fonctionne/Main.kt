@@ -15,16 +15,22 @@ import javafx.stage.Stage
 
 
 class Main : Application() {
-    private val rootLayout by lazy { initLayouts() }
+    private var rootLayout: HBox
     private val leftLayout = VBox()
     private val rightLayout = VBox()
 
-    val graphLayout by lazy { GraphLayout() }
-    val functionLayout by lazy { FunctionLayout() }
-    val variablesLayout by lazy { VariableLayout() }
+    var graphLayout: GraphLayout
+    var functionLayout: FunctionLayout
+    var variablesLayout: VariableLayout
 
     init {
         INSTANCE = this
+
+        variablesLayout = VariableLayout()
+        functionLayout = FunctionLayout()
+        graphLayout = GraphLayout()
+
+        rootLayout = initLayouts()
     }
 
     override fun start(primaryStage: Stage?) {
