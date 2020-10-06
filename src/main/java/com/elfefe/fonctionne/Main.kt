@@ -15,27 +15,33 @@ import javafx.stage.Stage
 
 
 class Main : Application() {
-    private val rootLayout by lazy { initLayouts() }
+    private var rootLayout: HBox
     private val leftLayout = VBox()
     private val rightLayout = VBox()
 
-    val graphLayout by lazy { GraphLayout() }
-    val functionLayout by lazy { FunctionLayout() }
-    val variablesLayout by lazy { VariableLayout() }
+    var graphLayout: GraphLayout
+    var functionLayout: FunctionLayout
+    var variablesLayout: VariableLayout
 
     init {
         INSTANCE = this
+
+        variablesLayout = VariableLayout()
+        functionLayout = FunctionLayout()
+        graphLayout = GraphLayout()
+
+        rootLayout = initLayouts()
     }
 
     override fun start(primaryStage: Stage?) {
         primaryStage?.apply {
-            scene = Scene(rootLayout)
+            scene = Scene(rootLayout, 1600.0, 900.0)
             title = TITLE
         }?.show()
     }
 
     private fun initLayouts() = HBox().apply {
-        background = backgroundColor(Color.BLACK)
+        background = backgroundColor(wall)
 
         children.addAll(
                 leftLayout,
@@ -66,6 +72,6 @@ class Main : Application() {
 
     companion object {
         const val TITLE = "Fonctionne"
-        lateinit var INSTANCE: Application
+        lateinit var INSTANCE: Main
     }
 }
