@@ -8,6 +8,7 @@ import javafx.scene.canvas.Canvas
 import javafx.scene.layout.*
 import javafx.scene.paint.Color
 import java.lang.IllegalArgumentException
+import kotlin.math.log2
 
 class GraphLayout : HBox() {
     companion object {
@@ -146,9 +147,11 @@ class GraphLayout : HBox() {
                 val baseY = (canvas.height / 2) - drawProperty.function.evaluateAt(baseX)
                 val steps = 1.0
                 moveTo(baseX, baseY)
-                baseX.until(canvas.width / 2, steps) { x ->
-                    val y = (canvas.height / 2) - drawProperty.function.evaluateAt(x) + drawProperty.verticalIndicatorPosition
-                    lineTo((x + canvas.width / 2 + drawProperty.horizontalIndicatorPosition), y)
+
+                baseX.until(canvas.width / 2, steps) { currentX ->
+                    val y = ((canvas.height / 2) - (drawProperty.function.evaluateAt(currentX) * drawProperty.verticalStepsGap)) + drawProperty.verticalIndicatorPosition
+                    val x = ((currentX * drawProperty.horizontalStepsGap) + canvas.width / 2 + drawProperty.horizontalIndicatorPosition)
+                    lineTo(x, y)
                 }
                 stroke()
                 closePath()

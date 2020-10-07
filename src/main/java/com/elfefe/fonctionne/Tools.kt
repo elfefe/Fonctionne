@@ -39,7 +39,7 @@ fun TextField.doubleFormater() {
 
 fun Double.until(exclusif: Double, steps: Double = 1.0, foreach: (Double) -> Unit) =
         generateSequence(this, { it + steps })
-                .takeWhile { if ((steps.toInt() / abs(steps.toInt())) == 1) it < exclusif else it > exclusif }
+                .takeWhile { if (steps > 0) it < exclusif else it > exclusif }
                 .forEach { foreach(it) }
 
 fun Double.decimalLength() = toString().split(".").run {
