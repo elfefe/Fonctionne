@@ -19,6 +19,7 @@ class GraphLayout : HBox() {
     private val main = Main.INSTANCE
     private val drawProperty: DrawProperty = DrawProperty()
     private var canvas: Canvas
+    private var mouseCanvas: Canvas
 
     init {
         background = backgroundColor(Color.TRANSPARENT)
@@ -26,7 +27,7 @@ class GraphLayout : HBox() {
         padding = Insets(VERTICAL_PADDING, HORIZONTAL_PADDING, VERTICAL_PADDING, HORIZONTAL_PADDING)
 
 
-        canvas = Canvas(width - (HORIZONTAL_PADDING * 2), height - (VERTICAL_PADDING * 2)).apply {
+        canvas = Canvas(width - (HORIZONTAL_PADDING * 2), height - (VERTICAL_PADDING * 2)).apply canvas@ {
             background = backgroundColor(primary)
             style = "-fx-border-radius: 10 10 10 10;"
             border = Border(BorderStroke(borders, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT))
@@ -46,17 +47,21 @@ class GraphLayout : HBox() {
             setOnMouseExited {
                 drawProperty.mouseHover = false
             }
+
+
+            mouseCanvas = Canvas(width, height).apply {
+                widthProperty().bind(this@canvas.widthProperty())
+                heightProperty().bind(this@canvas.heightProperty())
+            }
+
+            children.add(mouseCanvas)
         }
 
-        widthProperty().addListener { _, _, width ->
-//            canvas.width = width as Double - (HORIZONTAL_PADDING * 2)
-//            canvas.maxWidth(width - (HORIZONTAL_PADDING * 2))
+        widthProperty().addListener { _, _, _ ->
             drawIndicators()
         }
 
-        heightProperty().addListener { _, _, height ->
-//            canvas.height = height as Double - (VERTICAL_PADDING * 2)
-//            canvas.maxHeight(height - (VERTICAL_PADDING * 2))
+        heightProperty().addListener { _, _, _ ->
             drawIndicators()
         }
 
@@ -133,7 +138,6 @@ class GraphLayout : HBox() {
             closePath()
 
             drawShape()
-            if (drawProperty.mouseHover) drawMouseIntersection()
         }
     }
 
@@ -143,15 +147,20 @@ class GraphLayout : HBox() {
                 beginPath()
                 stroke = Color.AQUAMARINE
 
-                val baseX = - canvas.width / 2
+                val half = canvas.width / 2
+                val baseX = -half
                 val baseY = (canvas.height / 2) - drawProperty.function.evaluateAt(baseX)
                 val steps = 1.0
                 moveTo(baseX, baseY)
 
-                baseX.until(canvas.width / 2, steps) { currentX ->
+                baseX.until(half, steps) { currentX ->
                     val y = ((canvas.height / 2) - (drawProperty.function.evaluateAt(currentX) * drawProperty.verticalStepsGap)) + drawProperty.verticalIndicatorPosition
-                    val x = ((currentX * drawProperty.horizontalStepsGap) + canvas.width / 2 + drawProperty.horizontalIndicatorPosition)
+                    val x = ((currentX * drawProperty.horizontalStepsGap) + half + drawProperty.horizontalIndicatorPosition)
                     lineTo(x, y)
+
+                    if (drawProperty.mouseHover && drawProperty.mouseX - half > currentX - steps && drawProperty.mouseX - half < currentX + steps) {
+                        drawMouseIntersection(currentX + half, (canvas.height / 2) - drawProperty.function.evaluateAt(currentX))
+                    }
                 }
                 stroke()
                 closePath()
@@ -163,10 +172,11 @@ class GraphLayout : HBox() {
         }
     }
 
-    private fun drawMouseIntersection() {
-        canvas.graphicsContext2D.apply {
+    private fun drawMouseIntersection(x:Double, y: Double) {
+        mouseCanvas.graphicsContext2D.apply {
+            clearRect(0.0,0.0, mouseCanvas.width, mouseCanvas.height)
             fill = functionCursor
-            fillOval(drawProperty.mouseX, drawProperty.mouseY, 5.0, 5.0)
+            fillOval(x, y, 5.0, 5.0)
         }
     }
 

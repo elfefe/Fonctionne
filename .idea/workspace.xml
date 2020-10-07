@@ -29,7 +29,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3eeb851a-fed5-411d-ae24-37d298e0af29" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/elfefe/fonctionne/Tools.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elfefe/fonctionne/Tools.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/elfefe/fonctionne/Colors.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elfefe/fonctionne/Colors.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/elfefe/fonctionne/layout/GraphLayout.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/elfefe/fonctionne/layout/GraphLayout.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,17 +81,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -103,7 +92,8 @@
       <updated>1602052526823</updated>
       <workItem from="1602052529860" duration="1577000" />
       <workItem from="1602054125097" duration="167000" />
-      <workItem from="1602054308295" duration="9626000" />
+      <workItem from="1602054308295" duration="9669000" />
+      <workItem from="1602066356361" duration="2066000" />
     </task>
     <servers />
   </component>
@@ -142,22 +132,22 @@
       <screen x="1920" y="-358" width="2048" height="1112" />
     </state>
     <state x="2725" y="-47" key="FileChooserDialogImpl/0.0.1536.824/1920.-358.2048.1112@1920.-358.2048.1112" timestamp="1602055701523" />
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1602066076096">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1602068416995">
       <screen x="1920" y="-358" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.-358.2048.1112@1920.-358.2048.1112" timestamp="1602066076096" />
-    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1602066076096">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.-358.2048.1112@1920.-358.2048.1112" timestamp="1602068416995" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1602068416995">
       <screen x="1920" y="-358" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.center/0.0.1536.824/1920.-358.2048.1112@1920.-358.2048.1112" timestamp="1602066076096" />
-    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1602066076096">
+    <state width="2005" height="305" key="GridCell.Tab.0.center/0.0.1536.824/1920.-358.2048.1112@1920.-358.2048.1112" timestamp="1602068416995" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1602068416995">
       <screen x="1920" y="-358" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.left/0.0.1536.824/1920.-358.2048.1112@1920.-358.2048.1112" timestamp="1602066076096" />
-    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1602066076096">
+    <state width="2005" height="305" key="GridCell.Tab.0.left/0.0.1536.824/1920.-358.2048.1112@1920.-358.2048.1112" timestamp="1602068416995" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1602068416995">
       <screen x="1920" y="-358" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.right/0.0.1536.824/1920.-358.2048.1112@1920.-358.2048.1112" timestamp="1602066076096" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right/0.0.1536.824/1920.-358.2048.1112@1920.-358.2048.1112" timestamp="1602068416995" />
     <state x="2475" y="-147" key="Maven.ArtifactSearchDialog" timestamp="1602052963102">
       <screen x="1920" y="-358" width="2048" height="1112" />
     </state>
