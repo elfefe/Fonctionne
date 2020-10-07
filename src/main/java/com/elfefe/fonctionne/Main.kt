@@ -4,13 +4,8 @@ import com.elfefe.fonctionne.layout.FunctionLayout
 import com.elfefe.fonctionne.layout.GraphLayout
 import com.elfefe.fonctionne.layout.VariableLayout
 import javafx.application.Application
-import javafx.geometry.Insets
 import javafx.scene.Scene
-import javafx.scene.canvas.Canvas
-import javafx.scene.control.ScrollPane
 import javafx.scene.layout.*
-import javafx.scene.paint.Color
-import javafx.scene.paint.Paint
 import javafx.stage.Stage
 
 

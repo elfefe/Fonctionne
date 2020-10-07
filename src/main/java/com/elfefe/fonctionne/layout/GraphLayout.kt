@@ -29,6 +29,10 @@ class GraphLayout : HBox() {
             background = backgroundColor(primary)
             style = "-fx-border-radius: 10 10 10 10;"
             border = Border(BorderStroke(borders, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT))
+            isManaged = false
+
+            widthProperty().bind(this@GraphLayout.widthProperty())
+            heightProperty().bind(this@GraphLayout.heightProperty())
 
             setOnMouseMoved {
                 drawProperty.mouseX = it.x
@@ -43,17 +47,15 @@ class GraphLayout : HBox() {
             }
         }
 
-        canvas.rotationAxis = Point3D(180.0, 0.0, 0.0)
-
         widthProperty().addListener { _, _, width ->
-            canvas.width = width as Double - (HORIZONTAL_PADDING * 2)
-            canvas.maxWidth(width - (HORIZONTAL_PADDING * 2))
+//            canvas.width = width as Double - (HORIZONTAL_PADDING * 2)
+//            canvas.maxWidth(width - (HORIZONTAL_PADDING * 2))
             drawIndicators()
         }
 
         heightProperty().addListener { _, _, height ->
-            canvas.height = height as Double - (VERTICAL_PADDING * 2)
-            canvas.maxHeight(height - (VERTICAL_PADDING * 2))
+//            canvas.height = height as Double - (VERTICAL_PADDING * 2)
+//            canvas.maxHeight(height - (VERTICAL_PADDING * 2))
             drawIndicators()
         }
 
