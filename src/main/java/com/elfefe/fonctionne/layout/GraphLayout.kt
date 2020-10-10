@@ -50,6 +50,8 @@ class GraphLayout : HBox() {
 
 
             mouseCanvas = Canvas(width, height).apply {
+                isManaged = false
+
                 widthProperty().bind(this@canvas.widthProperty())
                 heightProperty().bind(this@canvas.heightProperty())
             }
